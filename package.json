@@ -1,0 +1,30 @@
+{
+  "name": "wechat-demo",
+  "version": "1.0.0",
+  "description": "微信小程序",
+  "main": "index.js",
+  "scripts": {
+    "start": "supervisor app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaxcode/wechat-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaxcode/wechat-demo/issues"
+  },
+  "homepage": "https://github.com/jaxcode/wechat-demo#readme",
+  "dependencies": {
+    "env2": "^2.2.2",
+    "hapi": "^17.6.0",
+    "hapi-swagger": "^9.1.1",
+    "inert": "^5.1.0",
+    "joi": "^13.7.0",
+    "package": "^1.0.1",
+    "supervisor": "^0.12.0",
+    "vision": "^5.4.0"
+  }
+}
