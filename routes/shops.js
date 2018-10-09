@@ -1,13 +1,14 @@
+const Joi = require('joi')
 const GROUP_NAME = 'shops'
 
 module.exports = [
   {
     method: 'GET',
     path: `/${GROUP_NAME}`,
-    handler: async (request, reply) => {
-      reply()
+    handler: (request, h) => {
+      return '获取店铺列表'
     },
-    config: {
+    options: {
       tags: ['api', GROUP_NAME],
       description: '获取店铺列表'
     }
@@ -15,12 +16,19 @@ module.exports = [
   {
     method: 'GET',
     path: `/${GROUP_NAME}/{shopId}/goods`,
-    handler: async (request, reply) => {
-      reply()
+    handler: async (request, h) => {
+      console.log(request.query)
+      console.log(request.params)
+      return '获取店铺的商品列表'
     },
-    config: {
+    options: {
       tags: ['api', GROUP_NAME],
-      description: '获取店铺的商品列表'
+      description: '获取店铺的商品列表',
+      validate: {
+        params: {
+          shopId: Joi.number().integer().required().error(new Error('订单号必须是数字'))
+        }
+      }
     }
   }
 ]

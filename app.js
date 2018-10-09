@@ -1,33 +1,16 @@
 require('env2')('./.env')
 const Hapi = require('hapi')
 const config = require('./config')
-// const routesHelloHapi = require('./routes/hello-hapi')
-// const routesShops = require('./routes/shops')
+const routesHelloHapi = require('./routes/hello-hapi')
+const routesShops = require('./routes/shops')
 // const routesOrders = require('./routes/orders')
-// const pluginHapiSwagger = require('./plugins/hapi-swagger')
-const Inert = require('inert')
-const Vision = require('vision')
-const HapiSwagger = require('hapi-swagger')
-const Pack = require('package')
+const pluginHapiSwagger = require('./plugins/hapi-swagger')
+
 
 const server = Hapi.server({...config})
 
 const init = async () => {
-  // await server.register(pluginHapiSwagger)
-
-  await server.register([
-    Inert,
-    Vision,
-    {
-      plugin: HapiSwagger,
-      options: {
-        info: {
-          title: 'Test API Documentation',
-          version: Pack.version,
-        },
-      }
-    }
-  ])
+  await server.register(pluginHapiSwagger)
 
   // server.route([
   //   ...routesHelloHapi,
@@ -35,17 +18,10 @@ const init = async () => {
   //   ...routesOrders
   // ])
   
-  server.route([{
-    method: 'GET',
-    path: '/',
-    handler: (request, h) => {
-      console.log(h)
-      return 'hello hapi'
-    },
-    options: {
-      tags: ['api']
-    }
-  }])
+  server.route([
+    ...routesHelloHapi,
+    ...routesShops
+  ])
 
   try {
     await server.start()

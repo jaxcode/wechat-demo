@@ -1,24 +1,18 @@
-const inert = require('inert')
-const vision = require('vision')
-const package = require('package')
-const hapiSwagger = require('hapi-swagger')
+const Inert = require('inert')
+const Vision = require('vision')
+const HapiSwagger = require('hapi-swagger')
+const Pack = require('package')
 
-module.exports = () => {
-  return [
-    inert,
-    vision,
-    {
-      plugin: hapiSwagger,
-      options: {
-        info: {
-          title: '接口文档',
-          version: package.version
-        },
-        grouping: 'tags',
-        tags: [
-          {name: 'test', description: '测试相关'}
-        ]
-      }
+module.exports = [
+  Inert,
+  Vision,
+  {
+    plugin: HapiSwagger,
+    options: {
+      info: {
+        title: 'Test API Documentation',
+        version: Pack.version,
+      },
     }
-  ]
-}
+  }
+]

@@ -2,13 +2,23 @@ module.exports = [
   {
     method: 'GET',
     path: '/',
-    config: {
-      handler: (request, reply) => {
-        reply('hello hapi')
-      },
-      // tags: ['api', 'tests'],
-      // description: '测试hello-hapi'
+    handler: (request, h) => {
+      return 'hello hapi'
+    },
+    options: {
+      tags: ['api'],
+      description: 'hello hapi'
+    }
+  },
+  {
+    method: 'GET',
+    path: '/hello',
+    handler: (request, h) => {
+      return h.file('./public/hello.html')
+    },
+    options: {
+      tags: ['api', 'view'],
+      description: 'hello hapi view'
     }
   }
 ]
-
