@@ -11,12 +11,6 @@ const server = Hapi.server({...config})
 
 const init = async () => {
   await server.register(pluginHapiSwagger)
-
-  // server.route([
-  //   ...routesHelloHapi,
-  //   ...routesShops,
-  //   ...routesOrders
-  // ])
   
   server.route([
     ...routesHelloHapi,
