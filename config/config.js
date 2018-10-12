@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'production') {
   require('env2')('./.env');
 }
 
-const { env } = process;
+const { env } = process
 
 module.exports = {
   "development": {
