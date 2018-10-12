@@ -7,7 +7,6 @@ const routesShops = require('./routes/shops')
 const pluginHapiSwagger = require('./plugins/hapi-swagger')
 const pluginHapiPagination = require('./plugins/hapi-pagination')
 
-
 const server = Hapi.server({...config})
 
 const init = async () => {

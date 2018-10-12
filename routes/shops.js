@@ -29,16 +29,25 @@ module.exports = [
     method: 'GET',
     path: `/${GROUP_NAME}/{shopId}/goods`,
     handler: async (request, h) => {
-      console.log(request.query)
-      console.log(request.params)
-      return '获取店铺的商品列表'
+      const {rows: results, count: totalCount} = await models.goods.findAndCountAll({
+        where: {
+          shop_id: request.params.shopId
+        },
+        attributes: ['id', 'name'],
+        limit: request.query.limit,
+        offset: (request.query.page - 1) * request.query.limit
+      })
+      return {results, totalCount}
     },
     options: {
       tags: ['api', GROUP_NAME],
       description: '获取店铺的商品列表',
       validate: {
         params: {
-          shopId: Joi.number().integer().required().error(new Error('订单号必须是数字'))
+          shopId: Joi.number().integer().required().description('店铺的id').error(new Error('订单号必须是数字'))
+        },
+        query: {
+          ...paginationDefine
         }
       }
     }
