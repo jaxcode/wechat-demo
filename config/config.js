@@ -14,8 +14,18 @@ module.exports = {
     "host": env.MYSQL_HOST,
     "port": env.MYSQL_PORT,
     "dialect": "mysql",
-    "dialectOptions": {
-      collate: "utf8_general_ci"
+    "timezone": "+08:00",
+    "pool":{
+        "max": 5,
+        "min": 0,
+        "idle": 10000
+    },
+    "define":{
+      "underscored": true,
+      "charset": "utf8",
+      "dialectOptions":{
+          "collate": "utf8_general_ci"
+      }
     },
     "operatorsAliases": false,  // 此参数为自行追加，解决高版本 sequelize 连接警告
   },  
@@ -26,8 +36,18 @@ module.exports = {
     "host": env.MYSQL_HOST,
     "port": env.MYSQL_PORT,
     "dialect": "mysql",
-    "dialectOptions": {
-      collate: "utf8_general_ci"
+    "timezone": "+08:00",
+    "pool":{
+        "max": 5,
+        "min": 0,
+        "idle": 10000
+    },
+    "define":{
+      "underscored": true,
+      "charset": "utf8",
+      "dialectOptions":{
+          "collate": "utf8_general_ci"
+      }
     },
     "operatorsAliases": false, // 此参数为自行追加，解决高版本 sequelize 连接警告
   }

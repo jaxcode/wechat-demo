@@ -4,7 +4,10 @@
   "description": "微信小程序",
   "main": "index.js",
   "scripts": {
-    "start": "supervisor app.js"
+    "start": "supervisor app.js",
+    "db:create": "sequelize db:create",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed:all": "sequelize db:seed:all"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,7 @@
   "dependencies": {
     "env2": "^2.2.2",
     "hapi": "^17.6.0",
+    "hapi-pagination": "^2.0.1",
     "hapi-swagger": "^9.1.1",
     "inert": "^5.1.0",
     "joi": "^13.7.0",
