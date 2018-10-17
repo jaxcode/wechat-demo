@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV === 'production') {
-  require('env2')('./.env.prod');
+  require('env2')('./.env.prod')
 } else {
-  require('env2')('./.env');
+  require('env2')('./.env')
 }
 
 const { env } = process

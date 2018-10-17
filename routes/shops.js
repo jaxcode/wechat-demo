@@ -22,7 +22,8 @@ module.exports = [
         query: {
           ...paginationDefine
         }
-      }
+      },
+      auth: false
     }
   },
   {
@@ -49,7 +50,8 @@ module.exports = [
         query: {
           ...paginationDefine
         }
-      }
+      },
+      auth: false
     }
   }
 ]
